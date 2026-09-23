@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix 經營管理與國際行銷分析</title>
+    <style>
+        :root {
+            --primary-color: #E50914;
+            --bg-dark: #141414;
+            --card-bg: #1F1F1F;
+            --text-light: #F5F5F1;
+            --text-gray: #AAAAAA;
+            --border-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(229,9,20,0.1) 0%, rgba(20,20,20,1) 100%);
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2.section-title {
+            font-size: 1.8rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+            margin-bottom: 25px;
+            color: var(--text-light);
+        }
+
+        /* Cards & Grids */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Timeline */
+        .timeline {
+            border-left: 2px solid var(--primary-color);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: var(--card-bg);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #2A2A2A;
+            color: var(--primary-color);
+        }
+
+        /* Highlights */
+        .stat-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">NETFLIX 行銷分析</a>
+            <ul class="nav-links">
+                <li><a href="#history">全球化歷程</a></li>
+                <li><a href="#market">市場現況</a></li>
+                <li><a href="#pestel">PESTEL</a></li>
+                <li><a href="#swot">SWOT</a></li>
+                <li><a href="#4p">4P 策略</a></li>
+                <li><a href="#conclusion">結論</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>NETFLIX 經營管理與國際行銷分析</h1>
+            <p>從 DVD 郵寄到全球串流媒體霸主：西班牙市場案例深度剖析</p>
+        </section>
+
+        <!-- 01 公司背景與全球化歷程 -->
+        <section id="history">
+            <h2 class="section-title">01 公司背景與全球化歷程</h2>
+            
+            <div class="card" style="margin-bottom: 20px;">
+                <h3>商業模式演進</h3>
+                <p>DVD 租借 &rarr; 訂閱制串流 &rarr; 自製內容 &rarr; 全球分發 &rarr; <strong>「內容 + 廣告 + 全球化」</strong></p>
+                <p>如今提供 21 種語言，為全球超過 190 個國家和地區的會員提供服務。</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>全球化三階段演進</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-date">第一階段：探路期 (2010-2015)</span>
+                            <p>進入加拿大、拉丁美洲與西歐等文化相近或成熟市場。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">第二階段：爆發期 (2016)</span>
+                            <p>啟動「一日全球化」，一次開通 130 個新國家，以標準化產品追求規模經濟。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">第三階段：深耕期 (2017-至今)</span>
+                            <p>推行「在地內容，全球共賞」，在西班牙、韓國、日本建立原創基地並外銷全球。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>關鍵發展里程碑</h3>
+                    <ul style="list-style-type: square; padding-left: 20px;">
+                        <li><strong>1997:</strong> 成立於美國，以 DVD 郵寄租賃起家</li>
+                        <li><strong>2007:</strong> 轉型串流媒體</li>
+                        <li><strong>2010:</strong> 首度跨足加拿大展開國際化</li>
+                        <li><strong>2016:</strong> 拓展至另外 130 個國家與地區</li>
+                        <li><strong>2022:</strong> 推出廣告方案</li>
+                        <li><strong>2023:</strong> 全面推行付費共享（西班牙為首批試點）</li>
+                        <li><strong>2025:</strong> 付費會員突破 3.25 億</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 全球市場現況 -->
+        <section id="market">
+            <h2 class="section-title">02 全球市場現況</h2>
+            <div class="grid-2" style="margin-bottom: 20px;">
+                <div class="stat-box">
+                    <div class="stat-number">3.25 億</div>
+                    <p>2025 全球付費會員數</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">$451.8 億</div>
+                    <p>2025 全年營收 (年增 +15.9%)</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>策略重心轉向</h3>
+                <p>從「用戶數暴增」轉向「每用戶平均營收 (ARPU) 與獲利」。在覆蓋 190+ 國家的成熟期，主要面對來自 Prime Video、Disney+、Max 等強勁對手的競爭。</p>
+            </div>
+        </section>
+
+        <!-- 03 案例聚焦：西班牙 PESTEL & SWOT -->
+        <section id="pestel">
+            <h2 class="section-title">03 案例聚焦：西班牙市場分析</h2>
+            
+            <div class="card" style="margin-bottom: 20px;">
+                <h3>西班牙市場背景與壓力</h3>
+                <p><strong>壓力 ① 法規限制：</strong>《視聽媒體服務指令》要求目錄須有 30% 歐洲作品，年營收逾 5,000 萬歐元須提撥 5% 投入歐洲影視製作。</p>
+                <p><strong>壓力 ② 商業衝擊：</strong> 2023 年執行付費共享新政後，2023 Q1 流失逾 100 萬用戶（其中 2/3 原為借用帳號者）。</p>
+            </div>
+
+            <h3 style="margin-bottom: 15px;">PESTEL 分析</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>面向</th>
+                            <th>重點內容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>P 政策</strong></td>
+                            <td>「歐洲視聽樞紐」計畫提供 €16 億公共資金 + 25%-30% 稅賦減免。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>E 經濟</strong></td>
+                            <td>40% 訂閱戶認為串流開支過高，但付費訂戶仍達 870 萬戶。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>S 社會</strong></td>
+                            <td>流失用戶中約 2/3 原為共享寄生帳號，顯示使用者習慣改變。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>T 科技</strong></td>
+                            <td>光纖覆蓋率 >85%，IP 與裝置識別技術可精準偵測異地共享。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>E 環境</strong></td>
+                            <td>需符合歐盟綠色轉型規範，注重資料中心能效與碳排放。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>L 法律</strong></td>
+                            <td>《視聽通信總法》規範 30% 歐洲作品配額及 5% 營收提撥。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SWOT -->
+        <section id="swot">
+            <h3 style="margin-bottom: 15px;">SWOT 分析</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>S 優勢 (Strengths)</h3>
+                    <ul>
+                        <li>在地西語原創作品可輻射全球（如《紙房子》、《名校風暴》）</li>
+                        <li>強大的用戶大數據與 IP/裝置偵測能力</li>
+                        <li>設有馬德里特雷斯坎托斯歐洲製作中心</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>W 劣勢 (Weaknesses)</h3>
+                    <ul>
+                        <li>價格偏高（Premium €21.99，高於 HBO Max / Disney+ 的 €15.99）</li>
+                        <li>體育直播等內容較少</li>
+                        <li>內容集中於影劇單一品類</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>O 機會 (Opportunities)</h3>
+                    <ul>
+                        <li>對接「歐洲視聽樞紐」的政策補貼與減稅</li>
+                        <li>優質西語內容持續擄獲拉美與全球戲迷</li>
+                        <li>推出低價廣告方案與電信商捆綁，擴大客群</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>T 威脅 (Threats)</h3>
+                    <ul>
+                        <li>歐洲作品配額與提撥壓縮其他地區製片彈性與現金流</li>
+                        <li>消費者產生訂閱疲勞及對價格敏感度提升</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 4P 策略 -->
+        <section id="4p">
+            <h2 class="section-title">04 4P 行銷策略（一戶一付費）</h2>
+            <div class="grid-4">
+                <div class="card">
+                    <h3>1. Product (產品)</h3>
+                    <p><strong>在地合規與生態建構：</strong> 投資特雷斯坎托斯與西語原創，將法規配額轉換為全球發行的內容優勢。</p>
+                </div>
+                <div class="card">
+                    <h3>2. Price (價格)</h3>
+                    <p><strong>版本化定價策略：</strong> 透過「廣告方案 (€5.49) + 額外成員 + 逐年調價」，將寄生帳號轉換為不同價位的付費層。</p>
+                </div>
+                <div class="card">
+                    <h3>3. Place (通路)</h3>
+                    <p><strong>B2B2C 電信結盟：</strong> 與 Movistar、Orange 等當地電信巨頭合作推出捆綁方案，降低用戶退訂率。</p>
+                </div>
+                <div class="card">
+                    <h3>4. Promotion (推廣)</h3>
+                    <p><strong>價值溝通與過渡：</strong> 強調「一戶一帳號」訊息，同時提供便利的「個人檔案轉移」功能減緩反彈。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 結論與策略建議 -->
+        <section id="conclusion">
+            <h2 class="section-title">05 結論與策略建議</h2>
+            <div class="card">
+                <h3 style="margin-bottom: 15px;">核心觀點：短期失血，長期增肌</h3>
+                <ol style="padding-left: 20px; line-height: 1.8;">
+                    <li><strong>流失主體多為「非付費」者：</strong> 約 2/3 流失用戶為借用密碼者，短期用戶數失血不等於同等收入失血。</li>
+                    <li><strong>合規與成長可以同向：</strong> 配額與提撥政策推動了在地投資，同時服務法規與全球分發需求，化被動為主動。</li>
+                    <li><strong>4P 一致形成商業閉環：</strong> 產品、價格、通路與推廣緊密配合，為每用戶平均營收 (ARPU) 成長奠定基礎。</li>
+                    <li><strong>策略具可移轉性：</strong> 西班牙作為 2023 年全面推行付費共享前的關鍵試驗場，其經驗成功複製至其他全球市場。</li>
+                </ol>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Netflix 國際行銷分析報告網頁 | 基於 GitHub Pages 製作</p>
+    </footer>
+
+</body>
+</html>
